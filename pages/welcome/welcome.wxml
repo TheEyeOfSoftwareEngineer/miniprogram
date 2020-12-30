@@ -1,0 +1,19 @@
+<!--pages/welcome/welcome.wxml-->
+
+<view class="container">
+  <image class="user-avatar" src="/images/avatar/1.png"></image>
+  <text class="motto">你好,小程序</text>
+  <!-- <button>开启小程序之旅</button> -->
+  <view class="journey-container">
+    <text class="journey">开启小程序之旅</text>
+  </view>
+</view>
+
+
+
+<!-- 容器: div - view:1.通过包裹元素布局 2.分隔容器块 -->
+
+<!-- flex: 基于容器的布局并通过容器控制其元素的位置布局 -->
+<!-- flex: 基于view容器 display: flex; -->
+<!-- flex-direction: column; -->
+<!-- 元素居中: align-items: center; -->
