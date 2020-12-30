@@ -1,7 +1,14 @@
 <!--pages/welcome/welcome.wxml-->
 
 <view class="container">
-  <image class="user-avatar" src="/images/avatar/1.png"></image>
+  <!-- <image class="user-avatar" src="/images/avatar/1.png"></image> -->
+  <iAvatar 
+    class="iAvatar"
+    shape="circle"
+    size="200"
+    placement="bottom"
+    open-data="{{['userAvatarUrl','userNickName']}}"
+  />
   <text class="motto">你好,小程序</text>
   <!-- <button>开启小程序之旅</button> -->
   <view class="journey-container">

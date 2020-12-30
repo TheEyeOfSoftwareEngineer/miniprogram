@@ -1,0 +1,52 @@
+<!--pages/posts/posts.wxml-->
+<view>
+  <!-- 需要注意字符串和Js变量的区别 主要是Boolean类型 -->
+  <!-- 数字字符串在Js中会进行转型，因为属性所要求的数据类型为数字 “3000”即转换为3000 -->
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular interval="3000">
+    <!-- swiper 滑块容器组件 负责滑动 但是 不限制滑动的内容 -->
+    <swiper-item>
+      <!-- 插槽 Any Type -->
+      <image src="/images/bestplayers.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/lpl.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/jumpfly.png"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="post-container">
+    <!-- 第一部分 -->
+    <view class="post-author-date">
+      <image class="post-author" src="/images/avatar/3.png"></image>
+      <text class="post-date">Nov 18 2020</text>
+    </view>    
+
+    <!-- 第二部分 -->
+    <text class="post-title">2020LPL夏季赛季后赛观赛指南</text>
+
+    <!-- 第三部分 -->
+    <image class="post-image" src="/images/lpl.png"></image>
+
+    <!-- 第四部分 -->
+    <text class="post-content">而这些并不是完全重要，更加重要的问题是， 我认为， 从这个角度来看， 韩非曾经说过，内外相应，言行相称。我希望诸位也能好好地体会这句话。 现在，解决中午吃什么的问题，是非常，</text>
+
+    <!-- 第五部分 -->
+    <view class="post-like">
+      <image class="post-like-image" src="/images/icon/chat.png"></image>
+      <text class="post-like-font">92</text>
+      <image class="post-like-image" src="/images/icon/view.png"></image>
+      <text class="post-like-font">102</text>
+    </view>
+
+  </view>
+
+</view>
+
+
+
+
+
+
+<!-- "entryPagePath": "pages/posts/posts", -->
