@@ -2,7 +2,7 @@
 
 <view class="container">
   <!-- <image class="user-avatar" src="/images/avatar/1.png"></image> -->
-  <iAvatar 
+  <MyAvatar 
     class="iAvatar"
     shape="circle"
     size="200"
@@ -11,7 +11,12 @@
   />
   <text class="motto">你好,小程序</text>
   <!-- <button>开启小程序之旅</button> -->
-  <view class="journey-container">
+  <!-- onTap事件的回调函数 -->
+  <!-- bind:tap和catch:tap的区别 冒泡与非冒泡的区别 -->
+  <!-- catch:tap会捕捉事件并且阻止冒泡，子组件的动作捕捉不会影响到父组件的事件捕捉 -->
+  <!-- 而bind:tap会冒泡 -->
+  <!-- 除 bind 和 catch 外，还可以使用 mut-bind 来绑定事件。一个 mut-bind 触发后，如果事件冒泡到其他节点上，其他节点上的 mut-bind 绑定函数不会被触发，但 bind 绑定函数和 catch 绑定函数依旧会被触发。 -->
+  <view bind:tap="onTap" class="journey-container">
     <text class="journey">开启小程序之旅</text>
   </view>
 </view>

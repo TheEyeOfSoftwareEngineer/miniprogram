@@ -1,0 +1,112 @@
+/* pages/post-detail/post-detail.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-image {
+  width: 100%;
+  height: 460rpx;
+}
+
+.author-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+
+.author-image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.author-name {
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-left: 20rpx;
+  color: #666;
+}
+
+.const-text {
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.post-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 30rpx;
+}
+
+.title {
+  margin-left: 40rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-top: 30rpx;
+  color: #4b556c;
+  letter-spacing: 2px;
+}
+
+/* 浮动元素 */
+/* 方式1: 不使用flex 使用float浮动 */
+/* 对于浮动的元素
+    浮动: float: right;
+    居中: vertical-align: middle; 
+*/
+
+/* 方式2: flex浮动 */
+/* 主轴 交叉轴 */
+/* flex-direction所在的方向就是主轴，另外那个就是交叉轴 */
+/* align-items是设置子元素在交叉轴上的排列方式 */
+/* justify-content是设置子元素在主轴上的排列方式 */
+/* 主轴若为row那么align-items设置的就是在上下方向是的排列方式,justify-content在这种情况下设置的就是水平方向上的排列方式 */
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+/* 一旦一个容器被应用了flex布局的方式,那么float和vertical-align等方式将失效 */
+/* 重要: 容器需要有宽度才能供子元素进行偏移!!! */
+.circle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 660rpx;
+}
+
+.circle image {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.share-image {
+  margin-left: 20rpx;
+}
+
+/* 如何实现横线 */
+.horizon {
+  width: 660rpx;
+  height: 1px;
+  background-color: #e5e5e5;
+  /* 脱离文档流 */
+  position: absolute;
+  z-index: -99;
+}
+
+
+.detail {
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+}
