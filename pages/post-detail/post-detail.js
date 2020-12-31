@@ -36,7 +36,11 @@ Page({
 
     //读取cache中的数据
     const posts_collected = wx.getStorageSync('posts_collected')
-    const collected = posts_collected[this.data._pid]
+    let collected = posts_collected[this.data._pid]
+    if(collected===undefined) {
+      collected = false
+    }
+
     const postData = postList.filter((post, index, arr) => {
       return post.postId == pid
     })[0]
@@ -48,12 +52,25 @@ Page({
 
   },
 
+  async onShare(event) {
+    const response = await wx.showActionSheet({
+      itemList: ['分享到QQ', '分享到微信', '分享到朋友圈'],
+      // success(res) {
+
+      // }
+    })
+
+    console.log(response)
+
+  },
+
   onCollect(event) {
     // 未收藏 -> 收藏
     // 哪篇文章被收藏
     // 设计一个数据结构 多篇文章是否被收藏
     // 我们可以先设置好js对象再传入
-    let postsCollected = this.data._posts_collected
+
+    const postsCollected = this.data._posts_collected
     
     postsCollected[this.data._pid] = !this.data.collected
 
@@ -73,6 +90,37 @@ Page({
     // 如下动态获取属性 我们可以传入一个对应参数为key的参数名
     // 比如我们可以有 attr 此时我们可以使用obj[attr]访问obj中attr代表的键名称对应的值
     // obj['key'] = 2
+
+    // 轻提示
+    wx.showToast({
+      title: this.data.collected?'收藏成功':'取消收藏',
+      duration: 3000,
+      icon: 'success'
+    })
+
+    // 模态对话框
+    //  title
+    //  content等等
+    //  success 无论点击哪个按钮这个回调函数都会触发
+
+    // const response = await wx.showModal({
+    //   title: this.data.collected? '是否取消收藏':'是否收藏文章',
+    //   // success(res) {
+    //   //   //如果是确定动作那么就执行取消收藏或者确认收藏的操作
+    //   // }
+    // })
+
+    // if(response.confirm) {
+    //   const postsCollected = this.data._posts_collected
+    
+    //   postsCollected[this.data._pid] = !this.data.collected
+  
+    //   this.setData({
+    //     collected: !this.data.collected
+    //   })
+  
+    //   wx.setStorageSync('posts_collected', postsCollected)
+    // }
 
   },
 
@@ -121,6 +169,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
+  // 微信分享是使用 不需要做什么 有这个函数就可以了
   onShareAppMessage: function () {
 
   }
