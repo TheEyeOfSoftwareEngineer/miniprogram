@@ -5,7 +5,8 @@
 <view class="container">
   
   <image class="head-image" src="{{postData.headImgSrc}}"></image>
-  
+  <image wx:if="{{!isPlaying}}" class="audio" bind:tap="onMusicStart" src="/images/music/music-start.png"></image>
+  <image wx:else class="audio" bind:tap="onMusicStop" src="/images/music/music-stop.png"></image>
   <view class="author-date">
     <image class="author-image" src="{{postData.avatar}}"></image>
     <text class="author-name">{{postData.author}}</text>

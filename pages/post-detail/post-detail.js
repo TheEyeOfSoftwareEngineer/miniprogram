@@ -1,6 +1,7 @@
 // pages/post-detail/post-detail.js
 
 import {postList} from "../../data/data.js"
+const app = getApp()
 
 // 获取全局变量方式1
 // 我们可以通过getApp()方式获取定义在App.js中的全局变量
@@ -21,7 +22,9 @@ Page({
     postData:{},
     collected: false,
     _pid: null,
-    _posts_collected: {}
+    _posts_collected: {},
+    isPlaying: false,
+    _mgr: null
   },
 
   /**
@@ -47,9 +50,21 @@ Page({
 
     this.setData({
       postData,
-      collected
+      collected,
+      isPlaying: this.currentMusicIsPlaying()
     })
 
+    const mgr = wx.getBackgroundAudioManager()
+    this.data._mgr = mgr
+    mgr.onPlay(this.onMusicStart)
+    mgr.onPause(this.onMusicStop)
+  },
+
+  currentMusicIsPlaying () {
+    if(app.gIsPlayingMusic && app.gIsPlaingPostId===this.data._pid) {      
+      return true      
+    }
+    return false
   },
 
   async onShare(event) {
@@ -59,9 +74,39 @@ Page({
 
       // }
     })
-
     console.log(response)
+  },
 
+  onMusicStart(event) {    
+    const mgr = this.data._mgr
+
+    const music = postList.filter((post, index, arr)=> {
+      return post.postId == this.data._pid
+    })[0]['music']
+
+    //[接口更新提示] 若需要小程序在退到后台后继续播放音频，你需要在 app.json 中配置 requiredBackgroundModes 属性
+    mgr.src = music.url
+    mgr.title = music.title
+    mgr.coverImgUrl = music.coverImg
+
+    app.gIsPlayingMusic = true
+    app.gIsPlaingPostId = this.data._pid
+    this.setData({
+      isPlaying: true
+    })
+
+  },
+
+  onMusicStop(event) {
+    const mgr = this.data._mgr
+    mgr.stop()
+    // 音乐停止 - strat
+    // 音乐播放 - stop
+    app.gIsPlayingMusic = false
+    app.gIsPlaingPostId = -1
+    this.setData({
+      isPlaying: false
+    })
   },
 
   onCollect(event) {

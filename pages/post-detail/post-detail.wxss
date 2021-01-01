@@ -10,6 +10,17 @@
   height: 460rpx;
 }
 
+.audio {
+  width: 102rpx;
+  height: 110rpx;
+  /* 浮动首先是脱离文档流 */
+  position: absolute;
+  /* 老式居中 */
+  left: 50%;
+  margin-left: -51rpx;
+  top: 175rpx;
+}
+
 .author-date {
   display: flex;
   flex-direction: row;
