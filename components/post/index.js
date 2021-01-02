@@ -20,10 +20,12 @@ Component({
 
   /**
    * 组件的方法列表
+   * 自定义事件
    */
   methods: {
     onTap(event){
       const pid = this.properties.res.postId
+      //抛出自定义的事件
       this.triggerEvent('posttap',{
         pid
       })

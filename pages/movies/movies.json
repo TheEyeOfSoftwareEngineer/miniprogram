@@ -2,5 +2,7 @@
   "usingComponents": {
     "MyMovieList": "/components/movie-list/index",
     "MySearchBar": "/miniprogram_npm/lin-ui/search-bar"
-  }
+  },
+  "navigationBarTitleText": "光与影"
+
 }
