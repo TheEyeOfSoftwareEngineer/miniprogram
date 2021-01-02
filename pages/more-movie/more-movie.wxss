@@ -1,0 +1,14 @@
+/* pages/more-movie/more-movie.wxss */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap 属性规定flex容器是单行或者多行，同时横轴的方向决定了新行堆叠的方向。注意：如果元素不是弹性盒对象的元素，则 flex-wrap 属性不起作用。 */
+  flex-wrap: wrap;
+  padding: 30rpx 28rpx;
+  justify-content: space-between;
+}
+
+.movie {
+  margin-bottom: 30rpx;
+}

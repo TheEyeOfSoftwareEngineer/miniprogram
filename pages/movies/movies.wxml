@@ -1,0 +1,21 @@
+<!--pages/movies/movies.wxml-->
+<!-- <text>pages/movies/movies.wxml</text> -->
+
+<!-- 重点:自定义组件 老版本使用的是template -->
+<!-- 从服务器加载数据 -->
+<MySearchBar bind:linconfirm="onConfirm" bind:lincancel="onCancel" l-class="ex-search-bar" placeholder="盗梦空间" />
+
+
+<view wx:if="{{!searchResult}}">
+
+  <MyMovieList data-type="in_theaters" bind:tap="onGotoMore" movies="{{inTheaters}}" title="正在热映" m-class="movie-list" />
+  <MyMovieList data-type="coming_soon" bind:tap="onGotoMore" movies="{{comingSoon}}" title="即将上映" m-class="movie-list" />
+  <MyMovieList data-type="top250" bind:tap="onGotoMore" movies="{{top250}}" title="豆瓣Top250" />
+
+</view>
+
+<view class="search-container" wx:else>
+  <block wx:for="{{searchData}}" wx:key="index">
+    <movie class="movie" movie="{{item}}"/>
+  </block>
+</view>

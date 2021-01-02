@@ -6,41 +6,41 @@
     <!-- swiper 滑块容器组件 负责滑动 但是 不限制滑动的内容 -->
     <swiper-item>
       <!-- 插槽 Any Type -->
-      <image src="/images/bestplayers.png"></image>
+      <image data-id="3" bind:tap="onGoToDetail" src="/images/bestplayers.png"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/lpl.png"></image>
+      <image data-id="0" bind:tap="onGoToDetail" src="/images/lpl.png"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/jumpfly.png"></image>
+      <image data-id="4" bind:tap="onGoToDetail" src="/images/jumpfly.png"></image>
     </swiper-item>
   </swiper>
 
-  <block wx:key="index" wx:for="{{postList}}">
+  <!-- <block wx:key="index" wx:for="{{postList}}"> -->
     <!-- data-xxx (xxx将统一为小写形式,复合单词采用连字符1形式如data-post-id最后再event中显示为postId) 表示自定义属性 其属性值可以从事件对象中获取
     event.currentTarget.dataset -->
-    <view data-id="{{item.postId}}" bind:tap="onGoToDetail" class="post-container">
+    <!-- <view data-id="{{item.postId}}" bind:tap="onGoToDetail" class="post-container"> -->
       <!-- 第一部分 -->
-      <view class="post-author-date">
+      <!-- <view class="post-author-date"> -->
         <!-- 对用户头像点击以后跳转到其他界面需要注意事件冒泡
         我们可以使用catch:
         同理对于喜欢和收藏也是同样的道理 -->
         <!-- catch:tap="onGoToUserProfile" -->
-        <image class="post-author" src="{{item.avatar}}"></image>
+        <!-- <image class="post-author" src="{{item.avatar}}"></image>
         <text class="post-date">{{item.date}}</text>
-      </view>    
+      </view>     -->
 
       <!-- 第二部分 -->
-      <text class="post-title">{{item.title}}</text>
+      <!-- <text class="post-title">{{item.title}}</text> -->
 
       <!-- 第三部分 -->
-      <image class="post-image" src="{{item.imgSrc}}"></image>
+      <!-- <image class="post-image" src="{{item.imgSrc}}"></image> -->
 
       <!-- 第四部分 -->
-      <text class="post-content">{{item.content}}</text>
+      <!-- <text class="post-content">{{item.content}}</text> -->
 
       <!-- 第五部分 -->
-      <view class="post-like">
+      <!-- <view class="post-like">
         <MyIcon class="post-like-image" size="28" color="#666" name="favor" />
         <text class="post-like-font">{{item.collection}}</text>
         <MyIcon class="post-like-image" size="32" color="#666" name="eye" />
@@ -48,12 +48,13 @@
       </view>
 
     </view>
+  </block> -->
+
+  <block wx:for="{{postList}}" wx:key="index">
+    <MyPost bind:posttap="onGoToDetail" res="{{item}}" />
   </block>
+
 </view>
-
-
-
-
 
 
 <!-- "entryPagePath": "pages/posts/posts", -->

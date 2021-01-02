@@ -1,0 +1,28 @@
+/* pages/movies/movies.wxss */
+.movie-list {
+  margin-bottom: 10rpx;
+  /* background-color: teal !important; */
+}
+
+.ex-search-bar {
+  height: 90rpx !important;
+}
+
+page {
+  background-color: #f2f2f2;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30rpx 28rpx;
+  justify-content: space-between;
+  
+}
+
+/* 使用伪类解决两个元素在左右两侧的问题 */
+.search-container::after {
+  content: '';
+  width: 200rpx;
+}

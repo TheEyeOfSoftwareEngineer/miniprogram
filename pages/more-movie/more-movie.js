@@ -1,38 +1,32 @@
-// pages/welcome/welcome.js
+// pages/more-movie/more-movie.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-
-  //这是在js对象内部,所以函数定义的方式需要注意
-  onTap: function(param) {
-    //页面跳转
-    //navigateTo相当于给一个页面添加一个子页面，可以从子页面返回
-    //页面栈最多保留10个
-    //navigateTo父界面并没有被销毁 redirectTo父界面销毁
-    // wx.navigateTo({
-    //   url: '/pages/posts/posts',
-    // })
-
-    // 小程序规定跳转到带有tabBar选项卡的页面我们不可以使用redirectTo的方式进入页面,而应该使用switchTab
-    // wx.redirectTo({
-    //   url: '/pages/posts/posts',
-    // })
-
-    wx.switchTab({
-      url: '/pages/posts/posts',
-    })
+    movies:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const type = options.type
+    wx.request({
+      url: app.gBaseUrl + type,
+      data:{
+        start:0,
+        count:11
+      },        
+      success: res => {
+        this.setData({
+          movies: res.data.subjects
+        })
+      }
+    })
   },
 
   /**

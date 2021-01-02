@@ -15,7 +15,8 @@ Page({
   // 数据驱动
   data: {
     // 值的初始化
-    a: "2020LPL夏季赛季后赛观赛指南"
+    // a: "2020LPL夏季赛季后赛观赛指南"
+    
   },
 
   /**
@@ -88,7 +89,7 @@ Page({
     //页面与页面之间的数据通信
     //查询参数通过?连接 如?pid= 
     //多个查询参数通过&连接 如?pid=3&value=4
-    const pid = event.currentTarget.dataset.id
+    const pid = event.currentTarget.dataset.id | event.detail.pid
     wx.navigateTo({
       url: '/pages/post-detail/post-detail?pid=' + pid
     })

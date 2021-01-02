@@ -1,0 +1,9 @@
+<!--components/movie/index.wxml-->
+<view class="container">
+  <image class="poster" src="{{movie.images.large}}"></image>
+  <text class="title" >{{movie.title}}</text>
+  <view class="rate-container">
+    <MyRate active-color="yellow" disabled="{{true}}" score="{{movie.rating.stars/10}}" size="22" />
+    <text class="score">{{movie.rating.average}}</text>
+  </view>
+</view>

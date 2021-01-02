@@ -44,6 +44,7 @@ Page({
       collected = false
     }
 
+
     const postData = postList.filter((post, index, arr) => {
       return post.postId == pid
     })[0]
